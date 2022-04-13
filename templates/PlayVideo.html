@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Learn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+    <style>
+        .source{
+            text-align: left;
+            color: #ffffff;
+            padding: 1px;
+        }
+    </style>
+	<h2 class="title" color = "ffffff">
+<label for="Course">Select the Course</label>
+<form action="" class="the-form" method = "post">
+  <div class="video-wrapper">
+    <select name="Course" id="Course" class="course-dropdown">
+      {% for data in coursesData %}
+      <option value={{data.ID}}>{{data.Description}}</option>
+      <!-- <option value=2002>MS Excel - Vlookup in Excel Video Tutorial</option>
+      <option value="2003">Scalable Services</option> -->
+      {% endfor %}
+    </select>
+    <input type="submit" value="Play" class="play-button">
+  </div>
+
+</form>
+</div>
+	</h2>
+</head>
+<body>
+<div class="source"><a><h2 class="title">{{title}}</h2></a></div>
+</div>
+{% if hyperLink %}
+<video width="1280" height="720" controls>
+  <!-- <iframe src='{{hyperLink}}' height="100%" width="100%" frameborder="0" class="video-player"></iframe> -->
+  <source src='{{hyperLink}}' type="video/mp4" controls="controls">
+</video>
+{% endif %}
+</body>
+</html>
